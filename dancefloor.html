@@ -2,15 +2,35 @@
 <html>
   <head>
     <title>Object Dance Party</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/rotatingDancer.js"></script>
+    <script src="src/shrinkingDancer.js"></script>
+
   </head>
   <body>
     <div class="topbar">
-      <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>    </div>
-    <script src="src/init.js"></script>
+      <a href="#" class="addDancerButton button blinky" data-dancer-maker-function-name="makeBlinkyDancer">Add a Blinky Avenger</a>
+      <a href="#" class="addDancerButton button rotating" data-dancer-maker-function-name="makeRotatingDancer">Add a Rotating Avenger</a>
+      <a href="#" class="addDancerButton button shrinking" data-dancer-maker-function-name="makeShrinkingDancer">Add a Shrinking Avenger</a>
+      <span class="title button assemble">ASSEMBLE!</span>
+      <span class="button interact">interact</span>
+      <a class="button reset" onClick="window.location.reload()">reset</a>
+
+    </div>
+
+    <div class="wrapper">
+      <section class="left"></section>
+      <section class="right">
+        <img src="https://cnet3.cbsistatic.com/img/xLgPeuq6CW9A2N2V2kKmhMT6h2o=/1092x0/2019/03/14/dd4d8d9c-5f16-4f6b-a7d8-65a00d095c2c/avengers-endgame-poster-square-crop.jpg">
+      </section>
+    </div>
+    
+    
+    
+      <script src="src/init.js"></script>
   </body>
 </html>
