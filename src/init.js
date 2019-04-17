@@ -52,25 +52,35 @@ $(document).ready(function() {
 
     var arr1 = [];
 
-    for (var x = 0; x < window.dancers.length; x++) {
+    for (var x = 0; x < window.dancers.length - 1; x++) {
       var arr2 = [];
       for (var y = x + 1; y < window.dancers.length; y++) {
-        // debugger;
         var distance = Math.sqrt(Math.pow(window.dancers[x].top - window.dancers[y].top, 2) + Math.pow(window.dancers[x].left - window.dancers[y].left, 2));
         arr2.push(distance);
       }
       arr1.push(arr2);
     }
-
-    console.log(arr1);
-
-    // var minDistance = arr.reduce(function(acc, el){
-    //   return el < acc ? el : acc;
-    // });
-
-    // var closestElement = window.dancers[arr.indexOf(minDistance)];
-    // console.log(closestElement);
+    
+    //For each element in our nested array (containing neighbor distances)
+    arr1.forEach(function(each){
+      // get the closest neighbor
+      var smallest = Math.min(...each);
+      
+      //for each element in the dancers array
+      for (var i = 0; i < window.dancers.length - 1; i++) {
+        //get the index of the closest neighbor
+        var index = arr1[i].indexOf(smallest) + i;
+        if (window.dancers[index]) {
+          window.dancers[i].$node.css({
+          top: window.dancers[index].top + 50, 
+          left: window.dancers[index].left - 50,
+          transition: 'all 1s ease-out'
+        });
+        }
+      }
+    })
   });
+  
 });
 
 $('.left').on("click", ".dancer", function(event) {
