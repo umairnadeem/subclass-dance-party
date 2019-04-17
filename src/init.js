@@ -75,6 +75,5 @@ $(document).ready(function() {
 
 $('.left').on("click", ".dancer", function(event) {
   $( ".dancer" ).append( "<div class='quote'>Whatever it takes!</div>" );
-  console.log('sdfsdf');
 });
 
